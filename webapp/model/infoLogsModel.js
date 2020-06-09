@@ -6,8 +6,13 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
       return new JSONModel([
         {
           type: "info",
-          time: "",
-          msg: "",
+          time: "just now",
+          msg: "Nothing to report",
+        },
+        {
+          type: "info",
+          time: "a bit later",
+          msg: "Still nothing",
         },
       ]);
     },

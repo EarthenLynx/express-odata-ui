@@ -7,17 +7,6 @@ sap.ui.define(
       /*
        * GETTERS
        */
-      handleGetTestRoute() {
-        this.getTestRoute();
-      },
-
-      /*
-       * SETTERS
-       */
-
-      /*
-       * ACTIONS
-       */
 
       getTestRoute() {
         var self = this;
@@ -69,6 +58,18 @@ sap.ui.define(
             self.beforeSendDialog.close();
           },
         });
+      },
+
+      /*
+       * SETTERS
+       */
+
+      /*
+       * ACTIONS
+       */
+
+      handleGetTestRoute() {
+        this.getTestRoute();
       },
     });
   }
