@@ -2,7 +2,7 @@
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:core="sap.ui.core">
-	<Table id="combined-log" backgroundDesign="Transparent" inset="false" items="{
+	<Table id="combined-log" class="sapUiSizeCompact" backgroundDesign="Transparent" inset="false" items="{
 			path: 'infoLogs>/'
 		}">
 		<columns>

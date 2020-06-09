@@ -9,7 +9,7 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
-
-		}
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+		},
 	});
 });

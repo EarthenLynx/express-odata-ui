@@ -2,7 +2,7 @@
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:core="sap.ui.core">
-	<Table id="error-log" inset="false" items="{
+	<Table id="error-log" class="sapUiSizeCompact" inset="false" items="{
 			path: 'errorLogs>/'
 		}">
 		<columns>
