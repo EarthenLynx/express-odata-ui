@@ -8,16 +8,23 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
         name: "",
         url: "",
         type: "json",
-        typeOptions: ["json", "xml"],
+        typeOptions: [
+          {
+            text: "JSON",
+            value: "json",
+            icon: "sap-icon://syntax"
+          },
+          {
+            text: "XML",
+            value: "xml",
+            icon: "sap-icon://source-code"
+          },
+        ],
         desc: "",
         sap: false,
         guest: false,
         active: true,
-        value: {
-          first_name: "new",
-          sur_name: "user",
-          age: 42,
-        },
+        value: '{"first_name": "new","sur_name": "user","age": 42}',
       });
     },
   };

@@ -1,15 +1,18 @@
-<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Home" displayBlock="true" 
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Codecheck" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:ce="sap.ui.codeeditor" 
-	xmlns:mvc="sap.ui.core.mvc">
-	<Select
-					forceSelection="false"
-					selectedKey="{activeRoute>/type}"
-					items="{
-						path: '/ProductCollection',
-						sorter: { path: 'Name' }
-					}">
-					<core:ListItem key="{/typeOptions}" text="{/typeOptions}" icon="{Icon}"/>
-				</Select>
-	<ce:CodeEditor id="activeRoute" type='{activeRoute>/type}' value='{activeRoute>/value}' colorTheme="chrome" height="400px" />
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core">
+	<Select id="type-input" width="10%" forceSelection="false" selectedKey="{activeRoute>/type}" items="{path: 'activeRoute>/typeOptions'}">
+		<core:ListItem key="{activeRoute>value}" text="{activeRoute>text}" icon="{activeRoute>icon}" />
+	</Select>
+
+	<Input width="74%" id="url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
+					path : 'activeRoute>/url',
+					type : '.customUrlType'
+				}"/>
+
+	<Button width="15%" id="query-button" type="Default" text="Query" press="handleGetTestRoute" icon="sap-icon://inspection" />
+
+	<ce:CodeEditor id="codeEditor" type='{activeRoute>/type}' value='{activeRoute>/value}' colorTheme="chrome" height="400px" />
 </mvc:View>
