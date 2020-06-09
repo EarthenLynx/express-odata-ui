@@ -1,0 +1,15 @@
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Home" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:ce="sap.ui.codeeditor" 
+	xmlns:mvc="sap.ui.core.mvc">
+	<Select
+					forceSelection="false"
+					selectedKey="{activeRoute>/type}"
+					items="{
+						path: '/ProductCollection',
+						sorter: { path: 'Name' }
+					}">
+					<core:ListItem key="{/typeOptions}" text="{/typeOptions}" icon="{Icon}"/>
+				</Select>
+	<ce:CodeEditor id="activeRoute" type='{activeRoute>/type}' value='{activeRoute>/value}' colorTheme="chrome" height="400px" />
+</mvc:View>
