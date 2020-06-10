@@ -8,18 +8,18 @@
 	<l:BlockLayout id="BlockLayout" background="Dashboard">
 		<l:BlockLayoutRow accentCells="Accent1">
 			<l:BlockLayoutCell title="Test an OData URL">
-				<Select width="8rem" id="type-input" class="sapUiSmallMarginEnd" forceSelection="false" selectedKey="{activeRoute>/type}" items="{path: 'activeRoute>/typeOptions'}">
-					<core:ListItem key="{activeRoute>value}" text="{activeRoute>text}" icon="{activeRoute>icon}" />
+				<Select width="8rem" id="type-input" class="sapUiSmallMarginEnd" forceSelection="false" selectedKey="{newRoute>/type}" items="{path: 'newRoute>/typeOptions'}">
+					<core:ListItem key="{newRoute>value}" text="{newRoute>text}" icon="{newRoute>icon}" />
 				</Select>
 
 				<Input tooltip="URL has to start with either http:// or https://" width="52rem" class="sapUiSmallMarginBegin sapUiSmallMarginEnd" id="url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
-								path : 'activeRoute>/url',
+								path : 'newRoute>/url',
 								type : '.customUrlType'
 							}"/>
 
 				<Button width="8rem" class="sapUiSmallMarginBegin" id="query-button" type="Default" text="Query" press="handleGetTestRoute" icon="sap-icon://inspection" />
 
-				<ce:CodeEditor id="codeEditor" type='{activeRoute>/type}' value='{activeRoute>/value}' colorTheme="chrome" height="350px" />
+				<ce:CodeEditor id="codeEditor" type='{newRoute>/type}' value='{newRoute>/value}' colorTheme="chrome" height="350px" />
 
 			</l:BlockLayoutCell>
 		</l:BlockLayoutRow>

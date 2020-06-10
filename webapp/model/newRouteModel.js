@@ -7,21 +7,28 @@ sap.ui.define([
         // @modelname   :   newRoute
         createNewRouteModel() {
             return new JSONModel({
-                id: "", 
-                name: "", 
-                url: "", 
-                type: "json", 
-                typeOptions: ["json", "xml"],
-                desc: "", 
-                sap: true, 
-                guest: false, 
-                active: true, 
-                value: {
-                    "first_name": "new",
-                    "sur_name": "user",
-                    "age": 42, 
-                }
-            })
+                id: "",
+                name: "",
+                url: "",
+                type: "json",
+                typeOptions: [
+                  {
+                    text: "JSON",
+                    value: "json",
+                    icon: "sap-icon://syntax"
+                  },
+                  {
+                    text: "XML",
+                    value: "xml",
+                    icon: "sap-icon://source-code"
+                  },
+                ],
+                desc: "",
+                sap: false,
+                guest: false,
+                active: true,
+                value: '{"first_name": "new","sur_name": "user","age": 42}',
+              });
         }
 
 	};

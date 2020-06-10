@@ -13,12 +13,12 @@ sap.ui.define(
 
         var oUrl = self
           .getOwnerComponent()
-          .getModel("activeRoute")
+          .getModel("newRoute")
           .getProperty("/url");
 
         var oType = self
           .getOwnerComponent()
-          .getModel("activeRoute")
+          .getModel("newRoute")
           .getProperty("/type");
 
         $.ajax({
@@ -37,7 +37,7 @@ sap.ui.define(
             //TODO: Add functionality for XML too
             self
               .getOwnerComponent()
-              .getModel("activeRoute")
+              .getModel("newRoute")
               .setProperty("/value", JSON.stringify(res));
             self.getView().byId("codeEditor").prettyPrint();
             console.log(status);
@@ -47,7 +47,7 @@ sap.ui.define(
           error(err) {
             self
               .getOwnerComponent()
-              .getModel("activeRoute")
+              .getModel("newRoute")
               .setProperty("/value", JSON.stringify(err));
             self.getView().byId("codeEditor").prettyPrint();
             MessageToast.show(

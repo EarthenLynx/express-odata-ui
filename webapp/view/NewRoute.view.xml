@@ -2,7 +2,7 @@
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:ce="sap.ui.codeeditor">
-	<Page showNavButton="true" navButtonPress="handleNavToHome" id="page" title="Create New Route" class="sapUiContentPadding">
+	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Create New Route" class="sapUiContentPadding">
 		<Image src="./assets/NewRouteHeading.png"
 		width="100%"
 			decorative="false"/>
