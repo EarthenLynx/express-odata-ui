@@ -1,23 +1,40 @@
-<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Home" displayBlock="true" 
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.NewRoute" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:ce="sap.ui.codeeditor">
 	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Create New Route" class="sapUiContentPadding">
-		<Image src="./assets/NewRouteHeading.png"
-		width="100%"
-			decorative="false"/>
+		<Image src="./assets/NewRouteHeading.png" width="100%" decorative="false"/>
 		<content>
-			<Label text="Name" />
-			<Input id="new-route-title-input" placeholder="Enter Service Name" value="{newRoute>/name}"/>
+			<Label labelFor="new-route-name-input" text="Name" />
+			<Input id="new-route-name-input" required="true" placeholder="Enter Service Name" valueStateText="Value must be at least 5 chars long and should be easily searchable" value="{
+				path: 'newRoute>/name', 
+				type : 'sap.ui.model.type.String',
+				constraints : {
+					minLength: 5
+				}
+			}"/>
 
-			<Label text="Route URL (has to start with http[s])" />
-			<Input tooltip="URL has to start with either http:// or https://" id="new-route-url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
-                path : 'newRoute>/url',
-                type : '.customUrlType'
-            }"/>
+			<Label labelFor="new-route-url-input" text="Route URL" />
+			<Input tooltip="URL has to start with either http:// or https://" required="true" id="new-route-url-input" placeholder="Enter Service URL" valueStateText="Value must be at least 5 chars long and should be a valid URL" value="{
+				path : 'newRoute>/url',
+				type : 'sap.ui.model.type.String',
+				constraints : {
+					minLength: 5
+				}
+			}"/>
+
+			<Label labelFor="new-route-oType-input" text="OData Type" />
+			<Input tooltip="Enter the ODataType (often referenced with @odata.type in the dataset). This is necessary to change the data later on." required="true" width="100%" valueStateText="Value must be at least 5 chars long and must fit the OData Type" value="{
+				path: 'newRoute>/oDataType',
+				type : 'sap.ui.model.type.String',
+				constraints : {
+					minLength: 5
+				} 
+			}" id="new-route-oType-input" placeholder="Enter the OData - Type of your dataset ..." />
 
 			<Label text="Description" />
 			<TextArea width="100%" value="{newRoute>/desc}" id="new-route-desc-input" placeholder="Enter a brief description about the service, its collection, metadata, ..." rows="4" />
+
 			<HBox>
 				<VBox class="sapUiMediumMarginEnd">
 					<Label text="Gateway service" />
@@ -50,7 +67,7 @@
 		<footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button press="handleOpenPopup" text="Create new Route" type="Accept" icon="sap-icon://add" />
+				<Button press="handleCreateNewRoute" text="Create new Route" type="Accept" icon="sap-icon://add" />
 			</OverflowToolbar>
 		</footer>
 	</Page>

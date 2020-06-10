@@ -18,10 +18,6 @@ sap.ui.define(["./Basecontroller", "../model/formatter"],
        * ACTIONS
        */
 
-      printModel() {
-        var model = this.getOwnerComponent().getModel("newRoute");
-        console.log(model);
-      },
     });
   }
 );

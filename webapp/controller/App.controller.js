@@ -1,15 +1,27 @@
-sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/demo/basicTemplate/model/formatter"
-], function(Controller, formatter) {
-	"use strict";
+sap.ui.define(
+  ["sap/ui/core/mvc/Controller", "sap/ui/demo/basicTemplate/model/formatter"],
+  function (Controller, formatter) {
+    "use strict";
 
-	return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+    return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+      formatter: formatter,
+      /*
+       * GETTERS
+       */
 
-		formatter: formatter,
+      /*
+       * SETTERS
+       */
 
-		onInit: function () {
-			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
-		},
-	});
-});
+      /*
+       * ACTIONS
+       */
+
+      onInit: function () {
+        this.getView().addStyleClass(
+          this.getOwnerComponent().getContentDensityClass()
+        );
+      },
+    });
+  }
+);
