@@ -3,6 +3,9 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:ce="sap.ui.codeeditor">
 	<Page showNavButton="true" navButtonPress="handleNavToHome" id="page" title="Create New Route" class="sapUiContentPadding">
+		<Image src="./assets/NewRouteHeading.png"
+		width="100%"
+			decorative="false"/>
 		<content>
 			<Label text="Name" />
 			<Input id="new-route-title-input" placeholder="Enter Service Name" value="{newRoute>/name}"/>
