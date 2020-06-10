@@ -11,6 +11,7 @@ sap.ui.define([
                 name: "",
                 url: "",
                 type: "json",
+                oDataType: "",
                 typeOptions: [
                   {
                     text: "JSON",
@@ -24,7 +25,7 @@ sap.ui.define([
                   },
                 ],
                 desc: "",
-                sap: false,
+                sap: true,
                 guest: false,
                 active: true,
                 value: '{"first_name": "new","sur_name": "user","age": 42}',
