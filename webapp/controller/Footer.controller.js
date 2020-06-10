@@ -1,10 +1,10 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", "../model/formatter"], function (
+sap.ui.define(["./Basecontroller", "../model/formatter"], function (
   Controller,
   formatter
 ) {
   "use strict";
 
-  return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+  return Controller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
     formatter: formatter,
 
     onInit: function () {

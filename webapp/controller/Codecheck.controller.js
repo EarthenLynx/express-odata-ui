@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/BusyDialog"],
-  function (Controller, MessageToast, BusyDialog) {
+  ["./Basecontroller", "sap/m/MessageToast", "sap/m/BusyDialog"],
+  function (MessageToast, BusyDialog) {
     "use strict";
 
-    return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+    return Controller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
       /*
        * GETTERS
        */

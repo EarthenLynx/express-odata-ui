@@ -3,13 +3,13 @@
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="page" title="{i18n>title}">
 		<content>
-			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.Logs"/>
-			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.Codecheck"/>
+			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.components.Logs"/>
+			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.components.Codecheck"/>
 		</content>
 		<footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button press="handleOpenPopup" text="Create new Route" type="Accept" icon="sap-icon://add" />
+				<Button press="handleNavToNewRoute" text="Create new Route" type="Accept" icon="sap-icon://add" />
 			</OverflowToolbar>
 		</footer>
 	</Page>

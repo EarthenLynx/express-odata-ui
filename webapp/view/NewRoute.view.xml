@@ -1,0 +1,41 @@
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Home" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="page" title="Create New Route" class="sapUiContentPadding">
+		<content>
+			<Label text="Name" />
+			<Input id="new-route-title-input" placeholder="Enter Service Name" value="{newRoute>/name}"/>
+
+			<Label text="Route URL (has to start with http[s])" />
+			<Input tooltip="URL has to start with either http:// or https://" id="new-route-url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
+                path : 'newRoute>/url',
+                type : '.customUrlType'
+            }"/>
+
+			<Label text="Description" />
+			<TextArea width="100%" value="{newRoute>/desc}" id="new-route-desc-input" placeholder="Enter a brief description about the service, its collection, metadata, ..." rows="4" />
+
+
+			<Switch class="sapUiTinyMarginEnd" state="{newRoute>/sap}">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Switch>
+			<Label text="Gateway service" />
+
+			<Switch class="sapUiSmallMarginBegin sapUiTinyMarginEnd" state="{newRoute>/guest}">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Switch>
+			<Label text="Allow Business Partner access" />
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button press="handleOpenPopup" text="Create new Route" type="Accept" icon="sap-icon://add" />
+			</OverflowToolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

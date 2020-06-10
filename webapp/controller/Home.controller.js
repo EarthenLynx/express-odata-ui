@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "../model/formatter", "sap/ui/core/Fragment"],
-  function (Controller, formatter, Fragment) {
+  ["./Basecontroller", "../model/formatter","sap/ui/core/routing/History"],
+  function (Controller, formatter, History) {
     "use strict";
 
-    return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+    return Controller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
       formatter: formatter,
 
       onInit: function () {},
@@ -18,20 +18,10 @@ sap.ui.define(
       /*
        * ACTIONS
        */
-      handleOpenPopup() {
-        Fragment.load({
-          name: "sap.ui.mgmt.odata.routes.view.Newroute",
-          controller: this,
-        }).then(
-          function (oDialog) {
-            this.oDialog = oDialog;
-            this.oDialog.open();
-          }.bind(this)
-        );
-      },
 
-      handleClosePopup() {
-        this.oDialog.close();
+      printModel() {
+        var model = this.getOwnerComponent().getModel("newRoute");
+        console.log(model);
       },
     });
   }

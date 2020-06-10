@@ -4,7 +4,7 @@ sap.ui.define([
 	"use strict";
 
 	return {
-        
+        // @modelname   :   newRoute
         createNewRouteModel() {
             return new JSONModel({
                 id: "", 
@@ -13,14 +13,13 @@ sap.ui.define([
                 type: "json", 
                 typeOptions: ["json", "xml"],
                 desc: "", 
-                sap: false, 
-                guest: false, 
+                sap: true, 
+                guest: true, 
                 active: true, 
                 value: {
                     "first_name": "new",
                     "sur_name": "user",
                     "age": 42, 
-                    
                 }
             })
         }
