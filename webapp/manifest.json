@@ -90,14 +90,12 @@
         "home": {
           "viewName": "Home",
           "viewId": "home",
-          "viewLevel": 1,
-          "title": "{i18n>title}"
+          "viewLevel": 1
         },
         "newroute": {
           "viewName": "NewRoute",
           "viewId": "newroute",
-          "viewLevel": 1,
-          "title": "New Route"
+          "viewLevel": 1
         }
       }
     }

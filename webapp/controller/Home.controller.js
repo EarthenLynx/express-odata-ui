@@ -1,9 +1,8 @@
-sap.ui.define(
-  ["./Basecontroller", "../model/formatter","sap/ui/core/routing/History"],
-  function (Controller, formatter, History) {
+sap.ui.define(["./Basecontroller", "../model/formatter"],
+  function (Basecontroller, formatter) {
     "use strict";
 
-    return Controller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
+    return Basecontroller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
       formatter: formatter,
 
       onInit: function () {},

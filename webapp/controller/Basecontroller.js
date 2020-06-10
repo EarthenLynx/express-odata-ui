@@ -6,9 +6,6 @@ sap.ui.define(
     return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
 
       onInit: function () {
-        this.getView().addStyleClass(
-          this.getOwnerComponent().getContentDensityClass()
-        );
       },
 
       handleNavToNewRoute() {

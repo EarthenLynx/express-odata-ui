@@ -1,7 +1,8 @@
 <mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.Home" displayBlock="true" 
 	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc">
-	<Page id="page" title="Create New Route" class="sapUiContentPadding">
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:ce="sap.ui.codeeditor">
+	<Page showNavButton="true" navButtonPress="handleNavToHome" id="page" title="Create New Route" class="sapUiContentPadding">
 		<content>
 			<Label text="Name" />
 			<Input id="new-route-title-input" placeholder="Enter Service Name" value="{newRoute>/name}"/>
@@ -14,21 +15,34 @@
 
 			<Label text="Description" />
 			<TextArea width="100%" value="{newRoute>/desc}" id="new-route-desc-input" placeholder="Enter a brief description about the service, its collection, metadata, ..." rows="4" />
+			<HBox>
+				<VBox class="sapUiMediumMarginEnd">
+					<Label text="Gateway service" />
+					<Switch customTextOn="Yes" customTextOff="No" state="{newRoute>/sap}">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Switch>
+				</VBox>
 
+				<VBox class="sapUiMediumMarginStart sapUiMediumMarginEnd">
+					<Label text="Business Partner access" />
+					<Switch state="{newRoute>/guest}">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Switch>
+				</VBox>
 
-			<Switch class="sapUiTinyMarginEnd" state="{newRoute>/sap}">
-				<layoutData>
-					<FlexItemData growFactor="1" />
-				</layoutData>
-			</Switch>
-			<Label text="Gateway service" />
-
-			<Switch class="sapUiSmallMarginBegin sapUiTinyMarginEnd" state="{newRoute>/guest}">
-				<layoutData>
-					<FlexItemData growFactor="1" />
-				</layoutData>
-			</Switch>
-			<Label text="Allow Business Partner access" />
+				<VBox class="sapUiMediumMarginStart">
+					<Label text="Active Route" />
+					<Switch state="{newRoute>/active}">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Switch>
+				</VBox>
+			</HBox>
 		</content>
 		<footer>
 			<OverflowToolbar>

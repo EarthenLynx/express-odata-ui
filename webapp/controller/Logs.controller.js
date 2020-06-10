@@ -4,10 +4,10 @@ sap.ui.define(
     "../model/formatter",
     "sap/ui/model/json/JSONModel",
   ],
-  function (Controller, formatter, JSONModel) {
+  function (Basecontroller, formatter, JSONModel) {
     "use strict";
 
-    return Controller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
+    return Basecontroller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
       formatter: formatter,
       /*
        * GETTERS

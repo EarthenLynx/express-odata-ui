@@ -14,7 +14,7 @@ sap.ui.define([
                 typeOptions: ["json", "xml"],
                 desc: "", 
                 sap: true, 
-                guest: true, 
+                guest: false, 
                 active: true, 
                 value: {
                     "first_name": "new",
