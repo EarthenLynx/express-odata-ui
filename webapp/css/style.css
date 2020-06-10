@@ -1,0 +1,4 @@
+/* Reduce the  margin from the block cells */
+.sapUiBlockCellContent {
+    padding: 1rem 1rem !important;
+  }

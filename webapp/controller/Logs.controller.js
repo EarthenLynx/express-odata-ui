@@ -1,13 +1,94 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", "../model/formatter"], function (
-  Controller,
-  formatter
-) {
-  "use strict";
+sap.ui.define(
+  [
+    "sap/ui/core/mvc/Controller",
+    "../model/formatter",
+    "sap/ui/model/json/JSONModel",
+  ],
+  function (Controller, formatter, JSONModel) {
+    "use strict";
 
-  return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
-    formatter: formatter,
+    return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
+      formatter: formatter,
+      /*
+       * GETTERS
+       * getInfoLogs  :   Fetches Info Logs from middleware and sets infoLogs model accordingly
+       * getErrorLogs :   Fetches Error Logs from middleware and sets errorLogs model accordingly
+       */
 
-    onInit: function () {
-    },
-  });
-});
+      getInfoLogs() {
+        var self = this;
+
+        // Dev Route
+        var oUrl = "http://localhost:3000/admin/logs/combined";
+        // Production Route
+        // var oUrl = ""
+
+        $.ajax({
+          url: oUrl,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          beforeSend() {
+            console.log("Fetching info logs now ...");
+          },
+          success(res, status) {
+            let infoLogs = new JSONModel(res);
+            self.getOwnerComponent().setModel(infoLogs, "infoLogs");
+          } /* Do something with the response */,
+          error(err) {
+            console.log(err);
+          } /* Do something when an error occurs */,
+          complete() {
+            console.log("done fetching info logs");
+          },
+        });
+      },
+
+      getErrorLogs() {
+        var self = this;
+
+        // Dev Route
+        var oUrl = "http://localhost:3000/admin/logs/error";
+        // Production Route
+        // var oUrl = ""
+
+        $.ajax({
+          url: oUrl,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          beforeSend() {
+            console.log("Fetching error logs now ...");
+          },
+          success(res, status) {
+            let errorLogs = new JSONModel(res);
+            console.log(errorLogs);
+
+            self.getOwnerComponent().setModel(errorLogs, "errorLogs");
+          } /* Do something with the response */,
+          error(err) {
+            console.log(err);
+          } /* Do something when an error occurs */,
+          complete() {
+            console.log("done fetching error logs");
+          },
+        });
+      },
+
+      /*
+       * SETTERS
+       */
+
+      /*
+       * ACTIONS
+       */
+      onInit() {
+        var self = this;
+        setInterval(() => {
+          self.getInfoLogs();
+          self.getErrorLogs();
+        }, 10000);
+      },
+    });
+  }
+);

@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout">
+    <!-- Main controller is the Countrylist.controller.js - file -->
+    <Dialog id="MapDialog" icon="sap-icon://geographic-bubble-chart" title="Country Comparison" stretch="false">
+        <beginButton>
+            <Button icon="sap-icon://accept" text="Create Route" press="handleClosePopup" />
+        </beginButton>
+        <ToolbarSpacer/>
+        <endButton>
+            <Button icon="sap-icon://decline" text="Cancel" press="handleClosePopup" />
+        </endButton>
+        <content>
+            <Text text="test" />
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

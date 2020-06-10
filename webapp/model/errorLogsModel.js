@@ -5,14 +5,14 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     createErrorLogsModel() {
       return new JSONModel([
         {
-          type: "error",
+          level: "error",
           time: "Just now",
-          msg: "Congrats! You're error free",
+          message: "Congrats! You're error free",
         },
         {
-          type: "error",
+          level: "error",
           time: "Just now",
-          msg: "Congrats! You're error free",
+          message: "Congrats! You're error free",
         },
       ]);
     },

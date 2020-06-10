@@ -5,14 +5,14 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     createInfoLogsModel() {
       return new JSONModel([
         {
-          type: "info",
+          level: "info",
           time: "just now",
-          msg: "Nothing to report",
+          message: "Nothing to report",
         },
         {
-          type: "info",
+          level: "info",
           time: "a bit later",
-          msg: "Still nothing",
+          message: "Still nothing",
         },
       ]);
     },
