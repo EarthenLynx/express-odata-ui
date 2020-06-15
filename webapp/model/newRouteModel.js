@@ -28,7 +28,7 @@ sap.ui.define([
                 sap: true,
                 guest: false,
                 active: true,
-                value: '{"first_name": "new","sur_name": "user","age": 42}',
+                value: '{"msg": "No OData sample request available"}',
               });
         }
 

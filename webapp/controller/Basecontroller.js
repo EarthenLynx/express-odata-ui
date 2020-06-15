@@ -17,6 +17,11 @@ sap.ui.define(
         oRouter.navTo("home");
       },
 
+      // Global Variable calculators
+      _getServerAdress() {
+        return "http://localhost:3000"
+      },
+
       // Helper Functions
       _handleValidateInput(oInput) {
         var oBinding = oInput.getBinding("value");

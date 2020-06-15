@@ -16,14 +16,20 @@ sap.ui.define(
          */
 
         onCreateRoute() {
-          const route = this.getView().getModel("newRoute").oData;
-          route.id = this._handleComputeRouteId();
+          const host = this._getServerAdress();
+          const payload = this.getView().getModel("newRoute").oData;
+
+          payload.id = this._handleComputeRouteId();
           $.ajax({
-            url: "http://localhost:3000/admin/routes",
-            data: route,
+            // FIXME: Add production route here later on
+            url: host + "/admin/routes",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            data: payload,
             type: "POST",
-            beforeSend: (request) => console.warn(request),
-            success: (result, status, xhr) => console.log(status),
+            beforeSend: (req) => console.warn(req),
+            success: (res, status, xhr) => console.log(status),
             error: (xhr, status, err) => console.log(err),
             complete: (xhr, status) => console.log(status),
           });

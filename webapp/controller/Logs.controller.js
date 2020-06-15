@@ -18,13 +18,10 @@ sap.ui.define(
       getInfoLogs() {
         var self = this;
 
-        // Dev Route
-        var oUrl = "http://localhost:3000/admin/logs/combined";
-        // Production Route
-        // var oUrl = ""
+        const host = this._getServerAdress();
 
         $.ajax({
-          url: oUrl,
+          url: host + "/admin/logs/combined",
           headers: {
             "Content-Type": "application/json",
           },
@@ -47,13 +44,10 @@ sap.ui.define(
       getErrorLogs() {
         var self = this;
 
-        // Dev Route
-        var oUrl = "http://localhost:3000/admin/logs/error";
-        // Production Route
-        // var oUrl = ""
+        const host = this._getServerAdress();
 
         $.ajax({
-          url: oUrl,
+          url: host + "/admin/logs/error",
           headers: {
             "Content-Type": "application/json",
           },
