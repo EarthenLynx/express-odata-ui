@@ -1,0 +1,13 @@
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.RoutesOverview" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:ce="sap.ui.codeeditor">
+	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Routes overview" class="sapUiContentPadding">
+
+		<content>
+			<Text text="Test : {activeRoute>/name}"/>
+		</content>
+
+	</Page>
+
+</mvc:View>

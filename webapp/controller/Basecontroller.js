@@ -24,6 +24,11 @@ sap.ui.define(
         oRouter.navTo("routesoverview");
       },
 
+      handleNavToRouteDetail() {
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        oRouter.navTo("routesdetail");
+      },
+
       // Global Variable calculators
       _getServerAdress() {
         return "http://localhost:3000"

@@ -1,11 +1,34 @@
-<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.NewRoute" displayBlock="true" 
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.RoutesOverview" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:ce="sap.ui.codeeditor">
-	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Create New Route" class="sapUiContentPadding">
-		
+	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Routes overview" class="sapUiContentPadding">
+
 		<content>
-			<Text text="This" ></Text>
+			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+				<Table id="routes-overview" class="sapUiSizeCompact" inset="false" items="{
+					path: 'myRoutes>/'
+				}">
+					<columns>
+						<Column >
+							<Text text="Service Name" />
+						</Column>
+						<Column>
+							<Text text="Service URL" />
+						</Column>
+						<Column>
+							<Text text="Service ID" />
+						</Column>
+					</columns>
+					<ColumnListItem press="handleSetActiveRoute" type="Navigation">
+						<cells>
+							<ObjectIdentifier text="{myRoutes>name}"/>
+							<ObjectIdentifier text="{myRoutes>url}"/>
+							<ObjectIdentifier text="{myRoutes>id}"/>
+						</cells>
+					</ColumnListItem>
+				</Table>
+			</ScrollContainer>
 		</content>
 
 	</Page>

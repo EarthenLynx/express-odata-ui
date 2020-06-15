@@ -89,6 +89,10 @@
           "pattern": "routesoverview",
           "name": "routesoverview",
           "target": ["routesoverview"]
+        }, {
+          "pattern": "routesdetail",
+          "name": "routesdetail",
+          "target": ["routesdetail"]
         }
       ],
       "targets": {
@@ -105,6 +109,11 @@
         "routesoverview": {
           "viewName": "RoutesOverview",
           "viewId": "routesoverview",
+          "viewLevel": 1
+        },
+        "routesdetail": {
+          "viewName": "RoutesDetail",
+          "viewId": "routesdetail",
           "viewLevel": 1
         }
       }
