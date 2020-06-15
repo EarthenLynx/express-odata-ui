@@ -22,7 +22,29 @@ sap.ui.define(
             url: host + "/admin/routes",
             type: "GET",
             success: (res, status, xhr) => {
-              let myRoutes = new JSONModel(res);
+              let oModel = res;
+
+              oModel.map((el) => {
+                if (el.sap === "true") {
+                  el.sap = true;
+                } else {
+                  el.sap = false;
+                }
+
+                if (el.guest === "true") {
+                  el.guest = true;
+                } else {
+                  el.guest = false;
+                }
+
+                if (el.active === "true") {
+                  el.active = true;
+                } else {
+                  el.active = false;
+                }
+              });
+
+              let myRoutes = new JSONModel(oModel);
               self.getOwnerComponent().setModel(myRoutes, "myRoutes");
               MessageToast.show("Fetched service routes from server.");
               callback();

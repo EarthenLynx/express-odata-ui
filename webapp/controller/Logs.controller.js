@@ -63,7 +63,7 @@ sap.ui.define(
         var self = this;
         setInterval(() => {
           self.getInfoLogs();
-          self.getErrorLogs();
+          // self.getErrorLogs();
         }, 10000);
       },
     });
