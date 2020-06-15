@@ -5,11 +5,33 @@
 
     <l:BlockLayout id="BlockLayout" background="Dashboard">
         <l:BlockLayoutRow accentCells="Accent1">
-            <l:BlockLayoutCell title="Error logs">
-                <mvc:XMLView height="330px" viewName="sap.ui.mgmt.odata.routes.view.components.logs.Error" />
-            </l:BlockLayoutCell>
-            <l:BlockLayoutCell title="Info logs">
-                <mvc:XMLView height="330px" viewName="sap.ui.mgmt.odata.routes.view.components.Logs.Info"/>
+            <l:BlockLayoutCell title="Server logs">
+                <ScrollContainer height="340px" width="100%" vertical="true" focusable="true">
+                    <Table id="combined-log" class="sapUiSizeCompact" backgroundDesign="Transparent" inset="false" items="{
+                        path: 'infoLogs>/'
+                    }">
+                        <columns>
+                            <Column width="6em">
+                                <Text text="Type" />
+                            </Column>
+                            <Column width="18em">
+                                <Text text="Time" />
+                            </Column>
+                            <Column>
+                                <Text text="Message" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier text="{infoLogs>level}"/>
+                                    <ObjectIdentifier text="{infoLogs>time}"/>
+                                    <ObjectIdentifier text="{infoLogs>message}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </ScrollContainer>
             </l:BlockLayoutCell>
         </l:BlockLayoutRow>
     </l:BlockLayout>

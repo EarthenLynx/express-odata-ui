@@ -32,25 +32,25 @@ sap.ui.define(
         });
       },
 
-      getErrorLogs() {
-        var self = this;
+      // getErrorLogs() {
+      //   var self = this;
 
-        const host = this._getServerAdress();
+      //   const host = this._getServerAdress();
 
-        $.ajax({
-          url: host + "/admin/logs/error",
-          beforeSend() {
-            console.log("Fetching error logs now ...");
-          },
-          success(res, status) {
-            let errorLogs = new JSONModel(res);
-            self.getOwnerComponent().setModel(errorLogs, "errorLogs");
-          },
-          error(err) {
-            MessageToast.show("Error: \n Could not fetch errorlogs: " + err)
-          }
-        });
-      },
+      //   $.ajax({
+      //     url: host + "/admin/logs/error",
+      //     beforeSend() {
+      //       console.log("Fetching error logs now ...");
+      //     },
+      //     success(res, status) {
+      //       let errorLogs = new JSONModel(res);
+      //       self.getOwnerComponent().setModel(errorLogs, "errorLogs");
+      //     },
+      //     error(err) {
+      //       MessageToast.show("Error: \n Could not fetch errorlogs: " + err)
+      //     }
+      //   });
+      // },
 
       /*
        * SETTERS
