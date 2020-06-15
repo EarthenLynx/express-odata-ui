@@ -2,9 +2,9 @@ sap.ui.define(
   [
     "./Basecontroller",
     "../model/formatter",
-    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/json/JSONModel","sap/m/MessageToast",
   ],
-  function (Basecontroller, formatter, JSONModel) {
+  function (Basecontroller, formatter, JSONModel, MessageToast) {
     "use strict";
 
     return Basecontroller.extend("sap.ui.mgmt.odata.routes.controller.Basecontroller", {
@@ -22,22 +22,13 @@ sap.ui.define(
 
         $.ajax({
           url: host + "/admin/logs/combined",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          beforeSend() {
-            console.log("Fetching info logs now ...");
-          },
           success(res, status) {
             let infoLogs = new JSONModel(res);
             self.getOwnerComponent().setModel(infoLogs, "infoLogs");
-          } /* Do something with the response */,
-          error(err) {
-            console.log(err);
-          } /* Do something when an error occurs */,
-          complete() {
-            console.log("done fetching info logs");
           },
+          error(err) {
+            MessageToast.show("Error: \n Could not fetch infologs: " + err)
+          }
         });
       },
 
@@ -48,24 +39,16 @@ sap.ui.define(
 
         $.ajax({
           url: host + "/admin/logs/error",
-          headers: {
-            "Content-Type": "application/json",
-          },
           beforeSend() {
             console.log("Fetching error logs now ...");
           },
           success(res, status) {
             let errorLogs = new JSONModel(res);
-            console.log(errorLogs);
-
             self.getOwnerComponent().setModel(errorLogs, "errorLogs");
-          } /* Do something with the response */,
-          error(err) {
-            console.log(err);
-          } /* Do something when an error occurs */,
-          complete() {
-            console.log("done fetching error logs");
           },
+          error(err) {
+            MessageToast.show("Error: \n Could not fetch errorlogs: " + err)
+          }
         });
       },
 
