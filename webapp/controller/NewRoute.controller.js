@@ -23,15 +23,13 @@ sap.ui.define(
           $.ajax({
             // FIXME: Add production route here later on
             url: host + "/admin/routes",
-            headers: {
-              "Content-Type": "application/json",
-            },
             data: payload,
             type: "POST",
-            beforeSend: (req) => console.warn(req),
-            success: (res, status, xhr) => console.log(status),
-            error: (xhr, status, err) => console.log(err),
-            complete: (xhr, status) => console.log(status),
+            // beforeSend: (req) => console.warn(req),
+            success: (res, status, xhr) =>
+              MessageToast.show("Route has been saved successfully."),
+            error: (xhr, status, err) =>
+              MessageToast.show(status + " - Could not save route: " + err),
           });
         },
 
