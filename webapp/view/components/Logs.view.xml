@@ -6,10 +6,10 @@
     <l:BlockLayout id="BlockLayout" background="Dashboard">
         <l:BlockLayoutRow accentCells="Accent1">
             <l:BlockLayoutCell title="Error logs">
-                <mvc:XMLView height="250px" viewName="sap.ui.mgmt.odata.routes.view.components.logs.Error" />
+                <mvc:XMLView height="330px" viewName="sap.ui.mgmt.odata.routes.view.components.logs.Error" />
             </l:BlockLayoutCell>
             <l:BlockLayoutCell title="Info logs">
-                <mvc:XMLView height="250px" viewName="sap.ui.mgmt.odata.routes.view.components.Logs.Info"/>
+                <mvc:XMLView height="330px" viewName="sap.ui.mgmt.odata.routes.view.components.Logs.Info"/>
             </l:BlockLayoutCell>
         </l:BlockLayoutRow>
     </l:BlockLayout>

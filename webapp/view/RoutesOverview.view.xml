@@ -1,0 +1,13 @@
+<mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.NewRoute" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:ce="sap.ui.codeeditor">
+	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Create New Route" class="sapUiContentPadding">
+		
+		<content>
+			<Text text="This" ></Text>
+		</content>
+
+	</Page>
+
+</mvc:View>

@@ -84,6 +84,11 @@
           "pattern": "newroute",
           "name": "newroute",
           "target": ["newroute"]
+        },
+        {
+          "pattern": "routesoverview",
+          "name": "routesoverview",
+          "target": ["routesoverview"]
         }
       ],
       "targets": {
@@ -95,6 +100,11 @@
         "newroute": {
           "viewName": "NewRoute",
           "viewId": "newroute",
+          "viewLevel": 1
+        },
+        "routesoverview": {
+          "viewName": "RoutesOverview",
+          "viewId": "routesoverview",
           "viewLevel": 1
         }
       }

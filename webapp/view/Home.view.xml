@@ -2,16 +2,14 @@
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="home-page" title="Home">
+		<headerContent>
+			<Button icon="sap-icon://overview-chart" tooltip="View all maintained routes" press="handleNavToRouteOverview" />
+			<Button icon="sap-icon://sys-add" tooltip="Create a new route" press="handleNavToNewRoute" />
+		</headerContent>
 		<content>
 			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.components.Logs"/>
 			<mvc:XMLView viewName="sap.ui.mgmt.odata.routes.view.components.Codecheck"/>
 		</content>
-		<footer>
-			<OverflowToolbar>
-				<ToolbarSpacer/>
-				<Button press="handleNavToNewRoute" text="Create new Route" type="Accept" icon="sap-icon://add" />
-			</OverflowToolbar>
-		</footer>
 	</Page>
 
 </mvc:View>

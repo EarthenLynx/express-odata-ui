@@ -7,14 +7,21 @@ sap.ui.define(
       onInit: function () {},
 
       // Navigation
+      handleNavToHome() {
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        oRouter.navTo("home");
+      },
+
+
       handleNavToNewRoute() {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         oRouter.navTo("newroute");
       },
 
-      handleNavToHome() {
+      
+      handleNavToRouteOverview() {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        oRouter.navTo("home");
+        oRouter.navTo("routesoverview");
       },
 
       // Global Variable calculators
