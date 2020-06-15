@@ -16,8 +16,17 @@ sap.ui.define(
          */
 
         onCreateRoute() {
-          console.log("Trying to create a route ...");
-          // TODO: Move on here
+          const route = this.getView().getModel("newRoute").oData;
+          route.id = this._handleComputeRouteId();
+          $.ajax({
+            url: "http://localhost:3000/admin/routes",
+            data: route,
+            type: "POST",
+            beforeSend: (request) => console.warn(request),
+            success: (result, status, xhr) => console.log(status),
+            error: (xhr, status, err) => console.log(err),
+            complete: (xhr, status) => console.log(status),
+          });
         },
 
         /*
