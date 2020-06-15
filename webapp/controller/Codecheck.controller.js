@@ -42,7 +42,7 @@ sap.ui.define(
             self.getView().byId("codeEditor").prettyPrint();
             console.log(status);
 
-            MessageToast.show("OK");
+            MessageToast.show("Done parsing data");
           } /* Do something with the response */,
           error(err) {
             self
@@ -51,7 +51,7 @@ sap.ui.define(
               .setProperty("/value", JSON.stringify(err));
             self.getView().byId("codeEditor").prettyPrint();
             MessageToast.show(
-              "Could not fetch data. Maybe you've entered an invalid URL?"
+              "Could not fetch data. You might have forgotten the http:// or hit a false route."
             );
           } /* Do something when an error occurs */,
           complete() {

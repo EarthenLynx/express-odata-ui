@@ -1,12 +1,10 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller"],
-  function (Controller) {
+  ["sap/ui/core/mvc/Controller", "sap/m/Text", "sap/m/Button", "sap/m/Dialog"],
+  function (Controller, Text, Button, Dialog) {
     "use strict";
 
     return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
-
-      onInit: function () {
-      },
+      onInit: function () {},
 
       // Navigation
       handleNavToNewRoute() {
@@ -38,11 +36,59 @@ sap.ui.define(
       },
 
       _handleComputeRouteId() {
-        let ranId = () =>  {
-          return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-       };       
-       return (ranId()+ranId()+"-"+ranId()+"-"+ranId()+"-"+ranId()+"-"+ranId()+ranId()+ranId());
-      }
+        let ranId = () => {
+          return (((1 + Math.random()) * 0x10000) | 0)
+            .toString(16)
+            .substring(1);
+        };
+        return (
+          ranId() +
+          ranId() +
+          "-" +
+          ranId() +
+          "-" +
+          ranId() +
+          "-" +
+          ranId() +
+          "-" +
+          ranId() +
+          ranId() +
+          ranId()
+        );
+      },
+
+      _handleCreateConfirmationPopup(text, action) {
+        var oDialog = new Dialog({
+          title: "Confirm your settings",
+          type: "Message",
+          state: "Information",
+          content: new Text({
+            text: text,
+          }),
+          beginButton: new Button({
+            text: "Cancel",
+            type: "Reject",
+            press() {
+              oDialog.close();
+            },
+          }),
+
+          endButton: new Button({
+            text: "Confirm",
+            type: "Accept",
+            press() {
+              action();
+              oDialog.close();
+            },
+          }),
+
+          afterClose() {
+            oDialog.destroy();
+          },
+        });
+        oDialog.open();
+        return;
+      },
     });
   }
 );
