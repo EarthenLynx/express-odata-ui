@@ -11,14 +11,14 @@ sap.ui.define(
          */
 
         getTestRoute() {
-          var self = this;
+          const self = this;
 
-          var oUrl = self
+          const oUrl = self
             .getOwnerComponent()
             .getModel("newRoute")
             .getProperty("/url");
 
-          var oType = self
+          const oType = self
             .getOwnerComponent()
             .getModel("newRoute")
             .getProperty("/type");
@@ -41,7 +41,6 @@ sap.ui.define(
                 .getOwnerComponent()
                 .getModel("newRoute")
                 .setProperty("/value", JSON.stringify(res));
-              self.getView().byId("codeEditor").prettyPrint();
 
               MessageToast.show("Done parsing data");
             } /* Do something with the response */,
@@ -50,7 +49,6 @@ sap.ui.define(
                 .getOwnerComponent()
                 .getModel("newRoute")
                 .setProperty("/value", JSON.stringify(err));
-              self.getView().byId("codeEditor").prettyPrint();
               MessageToast.show(
                 "Could not fetch data. You might have forgotten the http:// or hit a false route."
               );
@@ -71,6 +69,20 @@ sap.ui.define(
 
         handleGetTestRoute() {
           this.getTestRoute();
+        },
+
+        handlePrettyPrint() {
+          const codecheckValue = this.getOwnerComponent()
+            .getModel("newRoute")
+            .getProperty("/value");
+
+          const prettyValue = JSON.parse(JSON.stringify(codecheckValue.replace(/\\/g, "")))
+          
+          this.getOwnerComponent()
+            .getModel("newRoute")
+            .setProperty("/value", prettyValue);
+          
+          this.getView().byId("codeEditor").prettyPrint();
         },
       }
     );

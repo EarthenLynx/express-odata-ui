@@ -20,6 +20,7 @@
 				<Button width="8rem" class="sapUiSmallMarginBegin" id="query-button" type="Default" text="Query" press="handleGetTestRoute" icon="sap-icon://inspection" />
 
 				<ce:CodeEditor id="codeEditor" type='{newRoute>/type}' value='{newRoute>/value}' colorTheme="chrome" height="350px" />
+					<Button press="handlePrettyPrint" text="pretty" />
 
 			</l:BlockLayoutCell>
 		</l:BlockLayoutRow>
