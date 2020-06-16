@@ -33,6 +33,11 @@ sap.ui.define(
           });
         },
 
+        onSetActiveRouteOdataType(res) {
+          let oDataType = res["edmx:Edmx"]["edmx:DataServices"]["Schema"]["_attributes"]["Namespace"];
+          this.getView().getModel('newRoute').setProperty("/oDataType", oDataType)
+        },
+
         /*
          * ACTIONS
          */
@@ -41,15 +46,10 @@ sap.ui.define(
           const host = this._getServerAdress()
           const url = this.getView().getModel('newRoute').getProperty('/url');
           
-          
-
           $.ajax({
           url: host + '/ometa/props?url=' + url,
           type: 'GET',
-          success: (res, status, xhr) => {
-            let oDataType = res["edmx:Edmx"]["edmx:DataServices"]["Schema"]["_attributes"]["Namespace"];
-            this.getView().getModel('newRoute').setProperty("/oDataType", oDataType)
-          },
+          success: (res, status, xhr) => onSetActiveRouteOdataType(res),
           error: (xhr, status, err) => {
             MessageToast.show("Could not get the OData type. Please add it manually. \n " + err);
           },
