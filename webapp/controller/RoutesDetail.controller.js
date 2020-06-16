@@ -17,6 +17,32 @@ sap.ui.define(["./Basecontroller", "sap/m/BusyDialog"], function (
        * SETTERS
        */
 
+      onUpdateRoute(callback) {
+        const host = this._getServerAdress();
+        const self = this;
+        const payload = self.getView().getModel("activeRoute").oData;
+
+        console.log(payload)
+
+        $.ajax({
+          url: host + "/admin/routes",
+          data: payload,
+          type: "POST",
+          beforeSend() {
+            if (!self.beforeSendDialog) {
+              self.beforeSendDialog = new BusyDialog();
+              self.getView().addDependent(self.beforeSendDialog);
+            }
+            self.beforeSendDialog.open();
+          },
+          success: (result, status, xhr) => console.log(status),
+          error: (xhr, status, err) => console.log(err),
+          complete() {
+            self.beforeSendDialog.close();
+          },
+        });
+      },
+
       /*
        * ACTIONS
        */
@@ -27,7 +53,6 @@ sap.ui.define(["./Basecontroller", "sap/m/BusyDialog"], function (
           .getView()
           .getModel("activeRoute")
           .getProperty("/url");
-        console.log(route);
 
         $.ajax({
           url: route,
@@ -52,6 +77,14 @@ sap.ui.define(["./Basecontroller", "sap/m/BusyDialog"], function (
           },
         });
       },
+
+      handleOnUpdateRoute() {
+        this.onUpdateRoute(() => console.log("Route has been updated!"))
+      }, 
+
+      handleCancelOnUpdateRoute() {
+        this.handleNavToRouteOverview()
+      }
     }
   );
 });

@@ -69,8 +69,8 @@
 		<footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button press="handleCancelCreateRoute" text="Cancel" type="Reject" icon="sap-icon://decline" />
-				<Button press="handleCreateactiveRoute" text="Save" type="Accept" icon="sap-icon://save" />
+				<Button press="handleCancelOnUpdateRoute" text="Cancel" type="Reject" icon="sap-icon://decline" />
+				<Button press="handleOnUpdateRoute" text="Save" type="Accept" icon="sap-icon://save" />
 			</OverflowToolbar>
 		</footer>
 
