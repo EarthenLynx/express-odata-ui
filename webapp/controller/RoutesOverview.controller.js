@@ -54,12 +54,14 @@ sap.ui.define(
           });
         },
 
+        
+
         /*
          * SETTERS
          */
 
         setActiveRoute(oEvent, callback) {
-          // You MUST Specify the
+          // You MUST Specify the Model in the Binding Context!
           const sPath = oEvent
             .getSource()
             .getBindingContext("myRoutes")

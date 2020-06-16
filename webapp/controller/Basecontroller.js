@@ -6,7 +6,7 @@ sap.ui.define(
     return Controller.extend("sap.ui.mgmt.odata.routes.controller.App", {
       onInit: function () {},
 
-      // Navigation
+      // Global Navigation functions
       handleNavToHome() {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         oRouter.navTo("home");
@@ -34,7 +34,7 @@ sap.ui.define(
         return "http://localhost:3000"
       },
 
-      // Helper Functions
+      // Global Helper Functions
       _handleValidateInput(oInput) {
         var oBinding = oInput.getBinding("value");
         var sValueState = "None";
@@ -94,7 +94,44 @@ sap.ui.define(
             text: "Confirm",
             type: "Accept",
             press() {
-              action();
+              if(action) {
+                action()
+              }
+              oDialog.close();
+            },
+          }),
+
+          afterClose() {
+            oDialog.destroy();
+          },
+        });
+        oDialog.open();
+        return;
+      },
+
+      _handleCreateErrorPopup(text, action) {
+        var oDialog = new Dialog({
+          title: "An error has occured",
+          type: "Message",
+          state: "Error",
+          content: new Text({
+            text: text,
+          }),
+          beginButton: new Button({
+            text: "Cancel",
+            type: "Reject",
+            press() {
+              oDialog.close();
+            },
+          }),
+
+          endButton: new Button({
+            text: "Confirm",
+            type: "Accept",
+            press() {
+              if(action) {
+                action()
+              }
               oDialog.close();
             },
           }),
