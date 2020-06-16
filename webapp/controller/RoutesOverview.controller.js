@@ -47,14 +47,14 @@ sap.ui.define(
               let myRoutes = new JSONModel(oModel);
               self.getOwnerComponent().setModel(myRoutes, "myRoutes");
               MessageToast.show("Fetched service routes from server.");
-              callback();
+              if (callback) {
+                callback();
+              }
             },
             error: (xhr, status, err) =>
               MessageToast.show("Could not fetch service routes: " + err),
           });
         },
-
-        
 
         /*
          * SETTERS
@@ -88,6 +88,10 @@ sap.ui.define(
           self.setActiveRoute(oEvent, () =>
             self.getRoutes(() => self.handleNavToRouteDetail())
           );
+        },
+
+        handleGetRoutes() {
+          this.getRoutes();
         },
       }
     );

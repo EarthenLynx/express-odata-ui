@@ -3,6 +3,9 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:ce="sap.ui.codeeditor">
 	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Routes overview" class="sapUiContentPadding">
+		<headerContent>
+			<Button icon="sap-icon://synchronize" tooltip="Refresh this page" press="handleGetRoutes" />
+		</headerContent>
 
 		<content>
 			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">

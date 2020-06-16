@@ -5,6 +5,7 @@
 	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Details of service ID: {activeRoute>/id}" class="sapUiContentPadding">
 		<headerContent>
 			<Button icon="sap-icon://validate" tooltip="Check if route is available" press="handleCheckRouteActivity" />
+			<Button icon="sap-icon://delete" tooltip="Delete this route" press="handleOnDeleteRoute" />
 		</headerContent>
 		<content>
 			<Label labelFor="new-route-name-input" text="Name" />
