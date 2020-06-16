@@ -49,7 +49,7 @@ sap.ui.define(
           $.ajax({
           url: host + '/ometa/props?url=' + url,
           type: 'GET',
-          success: (res, status, xhr) => onSetActiveRouteOdataType(res),
+          success: (res, status, xhr) => this.onSetActiveRouteOdataType(res),
           error: (xhr, status, err) => {
             MessageToast.show("Could not get the OData type. Please add it manually. \n " + err);
           },

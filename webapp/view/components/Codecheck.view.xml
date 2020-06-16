@@ -8,19 +8,21 @@
 	<l:BlockLayout id="BlockLayout" background="Dashboard">
 		<l:BlockLayoutRow accentCells="Accent1">
 			<l:BlockLayoutCell title="Test a service">
-				<Select width="8rem" id="type-input" class="sapUiSmallMarginEnd" forceSelection="false" selectedKey="{newRoute>/type}" items="{path: 'newRoute>/typeOptions'}">
-					<core:ListItem key="{newRoute>value}" text="{newRoute>text}" icon="{newRoute>icon}" />
-				</Select>
 
-				<Input tooltip="URL has to start with either http:// or https://" width="57rem" class="sapUiSmallMarginBegin" id="url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
+				<Toolbar>
+					<Select  id="type-input" class="sapUiSmallMarginEnd" forceSelection="false" selectedKey="{newRoute>/type}" items="{path: 'newRoute>/typeOptions'}">
+						<core:ListItem key="{newRoute>value}" text="{newRoute>text}" icon="{newRoute>icon}" />
+					</Select>
+
+					<Input tooltip="URL has to start with either http:// or https://" width="57rem" class="sapUiSmallMarginBegin" id="url-input" placeholder="Enter Service URL" valueStateText="Value must be a valid URL" value="{
 								path : 'newRoute>/url',
 								type : '.customUrlType'
 							}"/>
 
-				<Button width="8rem" class="sapUiSmallMarginBegin" id="query-button" type="Default" text="Query" press="handleGetTestRoute" icon="sap-icon://inspection" />
-
+					<Button class="sapUiSmallMarginBegin" id="query-button" type="Default" text="Query" press="handleGetTestRoute" icon="sap-icon://inspection" />
+				</Toolbar>
 				<ce:CodeEditor id="codeEditor" type='{newRoute>/type}' value='{newRoute>/value}' colorTheme="chrome" height="350px" />
-					<Button press="handlePrettyPrint" text="pretty" />
+				<Button press="handlePrettyPrint" text="pretty" />
 
 			</l:BlockLayoutCell>
 		</l:BlockLayoutRow>
