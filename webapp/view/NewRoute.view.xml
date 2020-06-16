@@ -14,7 +14,8 @@
 				}
 			}"/>
 
-			<Label labelFor="new-route-url-input" text="Route URL" />
+			<Label width="100%" labelFor="new-route-url-input" text="Route URL" />
+
 			<Input tooltip="URL has to start with either http:// or https://" required="true" id="new-route-url-input" placeholder="Enter Service URL" valueStateText="Value must be at least 5 chars long and should be a valid URL" value="{
 				path : 'newRoute>/url',
 				type : 'sap.ui.model.type.String',
@@ -23,8 +24,9 @@
 				}
 			}"/>
 
-			<Label labelFor="new-route-oType-input" text="OData Type" />
-			<Input tooltip="Enter the ODataType (often referenced with @odata.type in the dataset). This is necessary to change the data later on." required="true" width="100%" valueStateText="Value must be at least 5 chars long and must fit the OData Type" value="{
+			<Label width="100%" labelFor="new-route-oType-input" text="OData Type" />
+			<Button width="5%" icon="sap-icon://action" tooltip="Try to compute the OData Type automatically" press="handleComputeOdataType" />
+			<Input width="95%" tooltip="Enter the ODataType (often referenced with @odata.type in the dataset). This is necessary to change the data later on." required="true" valueStateText="Value must be at least 5 chars long and must fit the OData Type" value="{
 				path: 'newRoute>/oDataType',
 				type : 'sap.ui.model.type.String',
 				constraints : {
@@ -32,7 +34,7 @@
 				} 
 			}" id="new-route-oType-input" placeholder="Enter the OData - Type of your dataset ..." />
 
-			<Label text="Description" />
+			<Label width="100%" text="Description" />
 			<TextArea width="100%" value="{newRoute>/desc}" id="new-route-desc-input" placeholder="Enter a brief description about the service, its collection, metadata, ..." rows="4" />
 
 			<HBox>
