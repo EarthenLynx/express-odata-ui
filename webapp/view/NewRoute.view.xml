@@ -1,6 +1,7 @@
 <mvc:View controllerName="sap.ui.mgmt.odata.routes.controller.NewRoute" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" 
 	xmlns:ce="sap.ui.codeeditor">
 	<Page showNavButton="true" navButtonPress="handleNavToHome" id="new-route-page" title="Create New Route" class="sapUiContentPadding">
 		<Image src="./assets/NewRouteHeading.png" width="100%" decorative="false"/>
@@ -24,7 +25,10 @@
 				}
 			}"/>
 
-			<Label width="100%" labelFor="new-route-oType-input" text="OData Type" />
+			<core:Icon src="sap-icon://message-information" class="sapUiTinyMarginEnd" press="handleShowOdataTypeHelp" />
+				
+			<Label width="95%" labelFor="new-route-oType-input" text="OData Type" />
+
 			<Button width="5%" icon="sap-icon://action" tooltip="Try to compute the OData Type automatically" press="handleComputeOdataType" />
 			<Input width="95%" tooltip="Enter the ODataType (often referenced with @odata.type in the dataset). This is necessary to change the data later on." required="true" valueStateText="Value must be at least 5 chars long and must fit the OData Type" value="{
 				path: 'newRoute>/oDataType',

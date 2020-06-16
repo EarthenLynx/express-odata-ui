@@ -34,8 +34,13 @@ sap.ui.define(
         },
 
         onSetActiveRouteOdataType(res) {
-          let oDataType = res["edmx:Edmx"]["edmx:DataServices"]["Schema"]["_attributes"]["Namespace"];
-          this.getView().getModel('newRoute').setProperty("/oDataType", oDataType)
+          let oDataType =
+            res["edmx:Edmx"]["edmx:DataServices"]["Schema"]["_attributes"][
+              "Namespace"
+            ];
+          this.getView()
+            .getModel("newRoute")
+            .setProperty("/oDataType", oDataType);
         },
 
         /*
@@ -43,17 +48,19 @@ sap.ui.define(
          */
 
         handleComputeOdataType() {
-          const host = this._getServerAdress()
-          const url = this.getView().getModel('newRoute').getProperty('/url');
-          
+          const host = this._getServerAdress();
+          const url = this.getView().getModel("newRoute").getProperty("/url");
+
           $.ajax({
-          url: host + '/ometa/props?url=' + url,
-          type: 'GET',
-          success: (res, status, xhr) => this.onSetActiveRouteOdataType(res),
-          error: (xhr, status, err) => {
-            MessageToast.show("Could not get the OData type. Please add it manually. \n " + err);
-          },
-          
+            url: host + "/ometa/props?url=" + url,
+            type: "GET",
+            success: (res, status, xhr) => this.onSetActiveRouteOdataType(res),
+            error: (xhr, status, err) => {
+              MessageToast.show(
+                "Could not get the OData type. Please add it manually. \n " +
+                  err
+              );
+            },
           });
         },
 
@@ -93,6 +100,10 @@ sap.ui.define(
             () => this.handleNavToHome()
           );
         },
+
+        handleShowOdataTypeHelp() {
+          this._handleCreateConfirmationPopup("The OData type is a combination of the OData context and the OData entity. \n You can find each of these information within the OData metadata. \n Clicking the button below will help you to find the context. Then, you will \n only need to add the name of the entity.")
+        }
       }
     );
   }
