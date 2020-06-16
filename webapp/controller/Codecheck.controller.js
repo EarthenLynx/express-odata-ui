@@ -12,6 +12,7 @@ sap.ui.define(
 
         getTestRoute() {
           const self = this;
+          const host = this._getServerAdress();
 
           const oUrl = self
             .getOwnerComponent()
@@ -24,7 +25,7 @@ sap.ui.define(
             .getProperty("/type");
 
           $.ajax({
-            url: oUrl,
+            url: host + "/odata?url=" + oUrl,
             headers: {
               "Content-Type": "application/xml" + oType,
             },
