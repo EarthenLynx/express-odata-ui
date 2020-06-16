@@ -105,11 +105,6 @@ sap.ui.define(
         });
         oDialog.open();
         return;
-      },
-
-      _handleConvertBoolean(check) {
-        if(check === "true") return check = true;
-        if(check !== "true") return check = false;
       }
     });
   }

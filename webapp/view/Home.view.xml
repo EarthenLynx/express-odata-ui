@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="home-page" title="Home">
 		<headerContent>
-			<Button icon="sap-icon://overview-chart" tooltip="View all maintained routes" press="handleNavToRouteOverview" />
+			<Button icon="sap-icon://developer-settings" tooltip="View all maintained routes" press="handleNavToRouteOverview" />
 			<Button icon="sap-icon://sys-add" tooltip="Create a new route" press="handleNavToNewRoute" />
 		</headerContent>
 		<content>
