@@ -19,6 +19,9 @@
 								type : '.Url'
 							}"/>
 
+					<Input width="30%" id="user-input" placeholder="Enter Username ... " />
+					<Input width="30%" id="password-input" placeholder="Enter Password ..." type="Password"/>
+
 					<Button id="query-button" type="Default" tooltip="Query this URL and see a live response" press="handleGetTestRoute" icon="sap-icon://inspection" />
 					<Button id="pretty-button" type="Default" tooltip="Prettify the response" press="handlePrettyPrint" icon="sap-icon://activate" />
 					

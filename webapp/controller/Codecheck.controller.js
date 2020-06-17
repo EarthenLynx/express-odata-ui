@@ -14,6 +14,15 @@ sap.ui.define(
           const self = this;
           const host = this._getServerAdress();
 
+          // Get user credentials and encode them
+          const user = this.getView().byId("user-input").getValue()
+          const password = this.getView().byId("password-input").getValue()
+          const base64 = btoa(user + ":" + password)
+
+          // Assign headers only if username & password have been specified
+          let headers;
+          if(user && password) headers = base64
+
           const oUrl = self
             .getOwnerComponent()
             .getModel("newRoute")
@@ -28,6 +37,7 @@ sap.ui.define(
             url: host + "/odata?url=" + oUrl,
             headers: {
               "Content-Type": "application/xml" + oType,
+              "Authorization": headers
             },
             beforeSend() {
               if (!self.beforeSendDialog) {
