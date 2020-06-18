@@ -31,7 +31,7 @@ sap.ui.define(
 
       // Global Variable calculators
       _getServerAdress() {
-        return "http://localhost:3000"
+        return "https://system-status-two.herokuapp.com"
       },
 
       // Global Helper Functions
